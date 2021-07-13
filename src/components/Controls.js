@@ -1,28 +1,33 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { moveDown, moveLeft, moveRight, rotate } from '../actions'
 
 export default function Controls(props) {
-    return (
-        <div className="controls">
-            {/* left */}
-            <button className="control-button" onClick={(e) => {
+  const dispatch = useDispatch()
+  const isRunning = useSelector((state) => state.isRunning)
 
-            }}>Left</button>
+  return (
+    <div className="controls">
+      {/* left */}
+      <button className="control-button" onClick={(e) => {
+        dispatch(moveLeft())
+      }}>Left</button>
 
-            {/* right */}
-            <button className="control-button" onClick={(e) => {
+      {/* right */}
+      <button className="control-button" onClick={(e) => {
+        dispatch(moveRight())
+      }}>Right</button>
 
-            }}>Right</button>
+      {/* rotate */}
+      <button className="control-button" onClick={(e) => {
+        dispatch(rotate())
+      }}>Rotate</button>
 
-            {/* rotate */}
-            <button className="control-button" onClick={(e) => {
+      {/* down */}
+      <button className="control-button" onClick={(e) => {
+        dispatch(moveDown())
+      }}>Down</button>
 
-            }}>Rotate</button>
-
-            {/* down */}
-            <button className="control-button" onClick={(e) => {
-
-            }}>Down</button>
-
-        </div>
-    )
+    </div>
+  )
 }
