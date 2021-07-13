@@ -28,7 +28,7 @@
   --cols: 10;
   --rows: 18;
   --tile-size: 20px;
-  --border-width: 5px;
+  --border-width: 2px;
 }
 
 body {
@@ -88,6 +88,7 @@ code {
   border-top-color: var(--border-top-color);
   border-right-color: var(--border-right-color);
   border-bottom-color: var(--border-bottom-color);
+  border-radius: 2px;
 }
 
 * {
@@ -100,6 +101,7 @@ code {
   grid-gap: 0;
   align-self: flex-start;
   grid-area: c; /* Assign to grid area c */
+  
 }
 
 /* Next Block */
@@ -114,7 +116,7 @@ code {
 .score-board-button {
   display: block;
   padding: 1em;
-  border-width: 5px;
+  border-width: var(--border-width);
   border-top-color: var(--button-color-t);
   border-left-color: var(--button-color-l);
   border-right-color: var(--button-color-r);
@@ -123,6 +125,8 @@ code {
 
 .score-board {
   grid-area: r;
+  display: flex;
+  flex-direction: column;
 }
 
 /* App */
@@ -143,9 +147,10 @@ code {
 
 /* This defines the areas on the grid with names: 'h', 'l', 'c', 'r',
 and 'b'. The '.' represents an empty cell on the grid. */
-  grid-template-areas: "h h h"
-                       "l c r"
-                       ". b .";
+  grid-template-areas: 
+  "h h h"
+  "l c r"
+  ". b .";
 }
 
 /* App-header */
@@ -166,8 +171,9 @@ and 'b'. The '.' represents an empty cell on the grid. */
   width: var(--size);
   height: var(--size);
   text-align: center;
+  font-size: 12px;
   display: block;
-  border-width: 5px;
+  border-width: var(--border-width);
   border-top-color: var(--button-color-t);
   border-left-color: var(--button-color-l);
   border-right-color: var(--button-color-r);
